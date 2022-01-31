@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { celebrate, Joi, errors } = require('celebrate');
+const { celebrate, Joi } = require('celebrate');
 const {
   getUsers,
   getUser,
@@ -37,7 +37,5 @@ router.patch(
   // eslint-disable-next-line comma-dangle
   updateAvatar
 );
-
-router.use(errors());
 
 module.exports = router;

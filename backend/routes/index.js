@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { celebrate, Joi, errors } = require('celebrate');
+const { celebrate, Joi } = require('celebrate');
 const usersRouter = require('./users');
 const cardsRouter = require('./cards');
 const { login, createUser } = require('../controllers/users');
@@ -42,7 +42,5 @@ router.use('/cards', cardsRouter);
 router.use(/.*/, (req, res, next) => {
   next(new NotFoundError('Страница не найдена'));
 });
-
-router.use(errors());
 
 module.exports = router;

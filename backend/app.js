@@ -2,7 +2,9 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const { errors } = require('celebrate');
 const routes = require('./routes');
+const { requestLogger, errorLogger } = require('./middleware/logger');
 
 const { PORT = 3001 } = process.env;
 
@@ -18,6 +20,7 @@ const allowedCors = [
   'localhost:3000',
 ];
 
+app.use(requestLogger);
 // eslint-disable-next-line consistent-return
 app.use((req, res, next) => {
   const { origin } = req.headers;
@@ -50,6 +53,9 @@ app.use((req, res, next) => {
 
 app.use(routes);
 
+app.use(errorLogger);
+
+app.use(errors());
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
   // если у ошибки нет статуса, выставляем 500
