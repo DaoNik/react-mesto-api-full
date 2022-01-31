@@ -54,8 +54,8 @@ const deleteCard = (req, res, next) => {
     });
 };
 
+// eslint-disable-next-line arrow-body-style
 const addLike = (req, res, next) => {
-  console.log(req.user._id, req.params.id);
   return Card.findByIdAndUpdate(
     req.params.id,
     { $addToSet: { likes: req.user._id } }, // добавить _id в массив, если его там нет
