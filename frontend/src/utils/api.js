@@ -4,6 +4,10 @@ class Api {
     this._headers = options.headers;
   }
 
+  _getToken() {
+    return `Bearer ${localStorage.getItem('token')}`;
+  }
+
   _checkRequest(res) {
     if (res.ok) {
       return res.json();
@@ -15,7 +19,10 @@ class Api {
   getUserInfo() {
     return fetch(`${this._url}users/me`, {
       method: 'GET',
-      headers: this._headers,
+      headers: {
+        authorization: this._getToken(),
+        ...this._headers,
+      },
     }).then((res) => {
       return this._checkRequest(res);
     });
@@ -24,7 +31,10 @@ class Api {
   addNewUserInfo(name, description) {
     return fetch(`${this._url}users/me`, {
       method: 'PATCH',
-      headers: this._headers,
+      headers: {
+        authorization: this._getToken(),
+        ...this._headers,
+      },
       body: JSON.stringify({
         name: name,
         about: description,
@@ -37,7 +47,10 @@ class Api {
   addCards() {
     return fetch(`${this._url}cards`, {
       method: 'GET',
-      headers: this._headers,
+      headers: {
+        authorization: this._getToken(),
+        ...this._headers,
+      },
     }).then((res) => {
       return this._checkRequest(res);
     });
@@ -47,11 +60,13 @@ class Api {
     // renderCreating(true, button);
     return fetch(`${this._url}cards`, {
       method: 'POST',
-      headers: this._headers,
+      headers: {
+        authorization: this._getToken(),
+        ...this._headers,
+      },
       body: JSON.stringify({
         name: name,
         link: link,
-        likes: likes,
       }),
     }).then((res) => {
       return this._checkRequest(res);
@@ -62,7 +77,10 @@ class Api {
     // renderSaving(true, button);
     return fetch(`${this._url}users/me/avatar`, {
       method: 'PATCH',
-      headers: this._headers,
+      headers: {
+        authorization: this._getToken(),
+        ...this._headers,
+      },
       body: JSON.stringify({
         avatar: avatar,
       }),
@@ -72,18 +90,24 @@ class Api {
   }
 
   addLike(cardId) {
-    return fetch(`${this._url}cards/likes/${cardId}`, {
+    return fetch(`${this._url}cards/${cardId}/likes`, {
       method: 'PUT',
-      headers: this._headers,
+      headers: {
+        authorization: this._getToken(),
+        ...this._headers,
+      },
     }).then((res) => {
       return this._checkRequest(res);
     });
   }
 
   deleteLike(cardId) {
-    return fetch(`${this._url}cards/likes/${cardId}`, {
+    return fetch(`${this._url}cards/${cardId}/likes`, {
       method: 'DELETE',
-      headers: this._headers,
+      headers: {
+        authorization: this._getToken(),
+        ...this._headers,
+      },
     }).then((res) => {
       return this._checkRequest(res);
     });
@@ -93,7 +117,10 @@ class Api {
     // renderDeleting(true, button);
     return fetch(`${this._url}cards/${cardId}`, {
       method: 'DELETE',
-      headers: this._headers,
+      headers: {
+        authorization: this._getToken(),
+        ...this._headers,
+      },
     }).then((res) => {
       return this._checkRequest(res);
     });

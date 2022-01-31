@@ -18,6 +18,7 @@ const allowedCors = [
   'localhost:3000',
 ];
 
+// eslint-disable-next-line consistent-return
 app.use((req, res, next) => {
   const { origin } = req.headers;
   // Сохраняем источник запроса в переменную origin

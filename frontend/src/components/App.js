@@ -146,7 +146,7 @@ function App() {
 
   function handleAddPlace(name, link) {
     api
-      .addNewCard({ name, link, likes: 0 })
+      .addNewCard({ name, link })
       .then((newCard) => {
         setCards([newCard, ...cards]);
         closeAllPopups();
