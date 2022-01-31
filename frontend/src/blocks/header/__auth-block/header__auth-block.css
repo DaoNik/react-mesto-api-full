@@ -1,0 +1,9 @@
+.header__auth-block {
+  display: flex;
+}
+
+@media screen and (max-width: 600px) {
+  .header__auth-block {
+    display: block;
+  }
+}

@@ -1,0 +1,17 @@
+.header__link {
+    display: block;
+    width: 142px;
+    height: 33px; 
+}
+
+.header__link:hover {
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 900px) {
+    .header__link {
+        width: 105px;
+        height: 24.4px;
+        margin-left: 27px;
+    }
+}

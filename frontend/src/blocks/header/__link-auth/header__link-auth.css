@@ -1,0 +1,17 @@
+.header__link-auth {
+  text-decoration: none;
+  color: #fff;
+  vertical-align: bottom;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.header__link-auth:hover {
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 900px) {
+  .header__link-auth {
+    margin-right: 30px;
+  }
+}

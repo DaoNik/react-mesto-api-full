@@ -1,0 +1,27 @@
+.gallery__card-btn {
+  border: none;
+  width: 19px;
+  height: 22px;
+  background-color: white;
+  justify-self: end;
+  padding: 0;
+  margin: 22px 20px 30px 0;
+  align-self: center;
+  background-image: url("../../../images/like.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.gallery__card-btn::after {
+  content: attr(data-before);
+  position: relative;
+  top: 16px;
+  font-size: 13px;
+  line-height: 15px;
+}
+
+.gallery__card-btn:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}

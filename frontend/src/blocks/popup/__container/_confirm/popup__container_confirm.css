@@ -1,0 +1,6 @@
+.popup__container_confirm {
+  max-height: 181px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
