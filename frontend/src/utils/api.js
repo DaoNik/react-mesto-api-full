@@ -9,12 +9,12 @@ class Api {
       return res.json();
     }
 
-    return Promise.reject("Произошла ошибка");
+    return Promise.reject('Произошла ошибка');
   }
 
   getUserInfo() {
     return fetch(`${this._url}users/me`, {
-      method: "GET",
+      method: 'GET',
       headers: this._headers,
     }).then((res) => {
       return this._checkRequest(res);
@@ -23,7 +23,7 @@ class Api {
 
   addNewUserInfo(name, description) {
     return fetch(`${this._url}users/me`, {
-      method: "PATCH",
+      method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
         name: name,
@@ -36,7 +36,7 @@ class Api {
 
   addCards() {
     return fetch(`${this._url}cards`, {
-      method: "GET",
+      method: 'GET',
       headers: this._headers,
     }).then((res) => {
       return this._checkRequest(res);
@@ -46,7 +46,7 @@ class Api {
   addNewCard({ name, link, likes } /*, renderCreating, button*/) {
     // renderCreating(true, button);
     return fetch(`${this._url}cards`, {
-      method: "POST",
+      method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
         name: name,
@@ -61,7 +61,7 @@ class Api {
   updateAvatar(avatar /*, renderSaving, button*/) {
     // renderSaving(true, button);
     return fetch(`${this._url}users/me/avatar`, {
-      method: "PATCH",
+      method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
         avatar: avatar,
@@ -73,7 +73,7 @@ class Api {
 
   addLike(cardId) {
     return fetch(`${this._url}cards/likes/${cardId}`, {
-      method: "PUT",
+      method: 'PUT',
       headers: this._headers,
     }).then((res) => {
       return this._checkRequest(res);
@@ -82,7 +82,7 @@ class Api {
 
   deleteLike(cardId) {
     return fetch(`${this._url}cards/likes/${cardId}`, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: this._headers,
     }).then((res) => {
       return this._checkRequest(res);
@@ -92,7 +92,7 @@ class Api {
   deleteCard(cardId /*renderDeleting, button*/) {
     // renderDeleting(true, button);
     return fetch(`${this._url}cards/${cardId}`, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: this._headers,
     }).then((res) => {
       return this._checkRequest(res);
@@ -101,9 +101,9 @@ class Api {
 }
 
 export default new Api({
-  url: "https://nomoreparties.co/v1/cohort-29/",
+  url: 'http://localhost:3001/',
   headers: {
-    authorization: "965be665-caac-4684-953a-3ef75da5404d",
-    "Content-Type": "application/json",
+    // authorization: "965be665-caac-4684-953a-3ef75da5404d",
+    'Content-Type': 'application/json',
   },
 });
