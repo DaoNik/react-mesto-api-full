@@ -1,7 +1,7 @@
-import React from "react";
-import CurrentUserContext from "../contexts/CurrentUserContext";
-import Card from "./Card";
-import Header from "./Header";
+import React from 'react';
+import CurrentUserContext from '../contexts/CurrentUserContext';
+import Card from './Card';
+import Header from './Header';
 
 function Main(props) {
   const currentUser = React.useContext(CurrentUserContext);
@@ -9,43 +9,43 @@ function Main(props) {
   return (
     <>
       <Header
-        link="/react-mesto-auth/sign-in"
+        link='/sign-in'
         userEmail={props.userEmail}
         onLogout={props.onLogout}
-        text="Выйти"
+        text='Выйти'
       />
       <main>
-        <section className="profile">
-          <div className="profile__wrapper">
-            <h1 className="profile__title">{currentUser.name}</h1>
-            <p className="profile__subtitle">{currentUser.about}</p>
+        <section className='profile'>
+          <div className='profile__wrapper'>
+            <h1 className='profile__title'>{currentUser.name}</h1>
+            <p className='profile__subtitle'>{currentUser.about}</p>
             <button
-              type="button"
+              type='button'
               onClick={props.onEditProfile}
-              className="profile__button-edit"
-              aria-label="Кнопка для открытия окна редактирования имени пользователя и рода деятельности"
+              className='profile__button-edit'
+              aria-label='Кнопка для открытия окна редактирования имени пользователя и рода деятельности'
             ></button>
           </div>
           <div
-            className="profile__container-avatar"
+            className='profile__container-avatar'
             onClick={props.onEditAvatar}
           >
             <img
-              className="profile__avatar"
+              className='profile__avatar'
               src={currentUser.avatar}
-              alt="Аватар профиля"
+              alt='Аватар профиля'
             />
           </div>
           <button
-            type="button"
+            type='button'
             onClick={props.onAddPlace}
-            className="profile__button-add"
-            aria-label="Кнопка для открытия окна добавления мест"
+            className='profile__button-add'
+            aria-label='Кнопка для открытия окна добавления мест'
           ></button>
         </section>
 
-        <section className="gallery">
-          <ul className="gallery__cards">
+        <section className='gallery'>
+          <ul className='gallery__cards'>
             {props.cards.map((card) => {
               return (
                 <Card
