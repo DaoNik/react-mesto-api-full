@@ -9,7 +9,7 @@ const { requestLogger, errorLogger } = require('./middleware/logger');
 const { PORT = 3001 } = process.env;
 
 const app = express();
-app.use(express.static(path.join(__dirname, 'react-mesto-auth')));
+app.use(express.static(path.join(__dirname, 'frontend')));
 app.use(bodyParser.json());
 
 const allowedCors = [

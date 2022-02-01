@@ -128,7 +128,7 @@ class Api {
 }
 
 export default new Api({
-  url: 'http://localhost:3001/',
+  url: 'http://pro100grog.students.nomoredomains.work/',
   headers: {
     // authorization: "965be665-caac-4684-953a-3ef75da5404d",
     'Content-Type': 'application/json',
