@@ -9,7 +9,7 @@ const { requestLogger, errorLogger } = require('./middleware/logger');
 const { PORT = 3001 } = process.env;
 
 const app = express();
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'react-mesto-auth')));
 app.use(bodyParser.json());
 
 const allowedCors = [
@@ -18,6 +18,8 @@ const allowedCors = [
   'http://localhost:3000',
   'http://localhost:3000/*',
   'localhost:3000',
+  'http://pro100grog.students.nomoredomains.work',
+  'https://pro100grog.students.nomoredomains.work',
 ];
 
 app.use(requestLogger);

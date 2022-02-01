@@ -21,7 +21,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "deployServer": "npm run build && scp -r ./build/* grog@62.84.121.175:/home/grog/mesto-frontend"
+    "deployServer": "npm run build && scp -r ./build/* grog@62.84.121.175:/home/grog/react-mesto-auth"
   },
   "eslintConfig": {
     "extends": [
