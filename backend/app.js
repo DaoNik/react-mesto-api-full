@@ -8,7 +8,7 @@ const { requestLogger, errorLogger } = require('./middleware/logger');
 
 require('dotenv').config();
 
-console.log(process.env.NODE_ENV);
+console.log(process.env.NODE_ENV, process.env.PORT);
 
 const { PORT = 3001 } = process.env;
 
@@ -73,7 +73,7 @@ app.use((err, req, res, next) => {
     message:
       statusCode === 500
         ? `На сервере произошла ошибка ${
-            (process.env.NODE_ENV, process.env.PORT, process.env.JWT_SECRET)
+            (process.env.NODE_ENV, process.env.PORT)
           }`
         : message,
   });
