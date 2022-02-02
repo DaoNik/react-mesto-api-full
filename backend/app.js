@@ -72,14 +72,11 @@ app.use((err, req, res, next) => {
 
 async function start() {
   try {
-    await mongoose.connect(
-      'mongodb://grog:07suhaho@pro100grog.students.nomoredomains.work:27017/mestodb',
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        // eslint-disable-next-line comma-dangle
-      }
-    );
+    await mongoose.connect('mongodb://grog:07suhaho@localhost:27017/mestodb', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      // eslint-disable-next-line comma-dangle
+    });
     app.listen(PORT, () => {
       console.log(`App has been started port ${PORT}`);
     });
