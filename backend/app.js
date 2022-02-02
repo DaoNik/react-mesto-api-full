@@ -71,10 +71,13 @@ app.use((err, req, res, next) => {
 
 async function start() {
   try {
-    await mongoose.connect('mongodb://localhost:27017/mestodb', {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(
+      'mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb/mestodb',
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }
+    );
     app.listen(PORT, () => {
       console.log(`App has been started port ${PORT}`);
     });
