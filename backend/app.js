@@ -72,7 +72,7 @@ app.use((err, req, res, next) => {
 async function start() {
   try {
     await mongoose.connect(
-      'mongodb+srv://https://pro100grog.students.nomoredomains.work/',
+      'mongodb://grog:07suhaho@pro100grog.students.nomoredomains.work:27017/mestodb',
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
