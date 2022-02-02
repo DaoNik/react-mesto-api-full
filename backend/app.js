@@ -72,10 +72,11 @@ app.use((err, req, res, next) => {
 async function start() {
   try {
     await mongoose.connect(
-      'mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb/mestodb',
+      'mongodb+srv://https://pro100grog.students.nomoredomains.work/',
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
+        // eslint-disable-next-line comma-dangle
       }
     );
     app.listen(PORT, () => {
