@@ -15,6 +15,7 @@ import Register from './Register';
 import InfoTooltip from './InfoTooltip';
 import * as auth from '../utils/auth';
 import RequireAuth from './RequireAuth';
+import Trash from './Trash';
 
 function App() {
   const navigate = useNavigate();
@@ -288,6 +289,8 @@ function App() {
           element={<Register onSubmit={handleRegister} />}
         />
         <Route path='/sign-in' element={<Login onSubmit={handleLogin} />} />
+        {/* Надо удалить */}
+        <Route path='/crash-test' element={<Trash />} />
         <Route
           path='*'
           element={
