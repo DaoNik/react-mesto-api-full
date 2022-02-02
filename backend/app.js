@@ -72,7 +72,7 @@ app.use((err, req, res, next) => {
 
 async function start() {
   try {
-    await mongoose.connect('mongodb://grog:07suhaho@localhost:27017/mestodb', {
+    await mongoose.connect('mongodb://localhost:27017/mestodb', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       // eslint-disable-next-line comma-dangle
