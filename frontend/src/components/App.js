@@ -221,7 +221,7 @@ function App() {
   function handleCheckRegister(isRegister) {
     setIsInfoTooltipOpen(true);
     if (isRegister) {
-      navigate('/');
+      navigate('/sign-in');
     }
   }
 
