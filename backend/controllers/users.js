@@ -5,6 +5,8 @@ const NotFoundError = require('../errors/NotFoundError');
 const ValidationError = require('../errors/ValidationError');
 const AuthorizationError = require('../errors/AuthorizationError');
 
+const { JWT_SECRET } = process.env;
+
 // eslint-disable-next-line arrow-body-style
 const getUsers = (req, res, next) => {
   return User.find({})
@@ -28,7 +30,7 @@ const login = (req, res, next) => {
           throw new AuthorizationError('Неправильные почта или пароль');
         }
 
-        const token = jwt.sign({ _id: user._id }, 'super-secret', {
+        const token = jwt.sign({ _id: user._id }, JWT_SECRET, {
           expiresIn: '7d',
         });
         return res.status(200).send({ token });
