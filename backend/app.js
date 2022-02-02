@@ -72,7 +72,9 @@ app.use((err, req, res, next) => {
     // проверяем статус и выставляем сообщение в зависимости от него
     message:
       statusCode === 500
-        ? `На сервере произошла ошибка ${process.env.NODE_ENV}`
+        ? `На сервере произошла ошибка ${
+            (process.env.NODE_ENV, process.env.PORT, process.env.JWT_SECRET)
+          }`
         : message,
   });
 });
