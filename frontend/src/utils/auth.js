@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://api.pro100grog.students.nomoredomains.work/';
+export const BASE_URL = 'https://api.pro100grog.students.nomoredomains.work';
 
 function checkRequest(res) {
   if (res.ok) {
