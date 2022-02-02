@@ -20,6 +20,7 @@ const allowedCors = [
   'localhost:3000',
   'http://pro100grog.students.nomoredomains.work',
   'https://pro100grog.students.nomoredomains.work',
+  'https://pro100grog.students.nomoredomains.work/*',
 ];
 
 app.use(requestLogger);
