@@ -1,10 +1,14 @@
 const { Schema, model } = require('mongoose');
+const { validator } = require('validator');
 
 const userSchema = new Schema({
   email: {
     type: String,
     required: true,
     unique: true,
+    validate: {
+      validator: (v) => validator(v).isEmail(),
+    },
   },
   password: {
     type: String,
@@ -26,9 +30,7 @@ const userSchema = new Schema({
   avatar: {
     type: String,
     validate: {
-      validator(v) {
-        return /^(http|https):\/\/[^ "]+$/.test(v);
-      },
+      validator: (v) => validator(v).isUrl(),
     },
     default:
       'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',

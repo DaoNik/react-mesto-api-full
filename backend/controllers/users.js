@@ -5,7 +5,7 @@ const NotFoundError = require('../errors/NotFoundError');
 const ValidationError = require('../errors/ValidationError');
 const AuthorizationError = require('../errors/AuthorizationError');
 
-const { JWT_SECRET } = process.env;
+const { JWT_SECRET = 'secret' } = process.env;
 
 // eslint-disable-next-line arrow-body-style
 const getUsers = (req, res, next) => {
