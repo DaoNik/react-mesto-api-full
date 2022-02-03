@@ -191,6 +191,16 @@ function App() {
       })
       .then(() => {
         api
+          .getUserInfo()
+          .then((user) => {
+            setCurrentUser(user);
+          })
+          .catch((err) => {
+            console.log(`Ошибка: ${err}`);
+          });
+      })
+      .then(() => {
+        api
           .addCards()
           .then((newCards) => {
             setCards(newCards);
