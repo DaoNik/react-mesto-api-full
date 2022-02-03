@@ -189,6 +189,16 @@ function App() {
         localStorage.setItem('email', email);
         navigate('/');
       })
+      .then(() => {
+        api
+          .addCards()
+          .then((newCards) => {
+            setCards(newCards);
+          })
+          .catch((err) => {
+            console.log(`Ошибка: ${err}`);
+          });
+      })
       .catch((err) => {
         if (err === '400') {
           console.log('не передано одно из полей');
