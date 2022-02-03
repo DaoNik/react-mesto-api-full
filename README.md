@@ -7,6 +7,8 @@
 ### Ссылка на проект
 
 https://pro100grog.students.nomoredomains.work/
+https://api.pro100grog.students.nomoredomains.work/
+Ip-адрес: 84.201.153.95
 
 ### Планы по улучшению
 
