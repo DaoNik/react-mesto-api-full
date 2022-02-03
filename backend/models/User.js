@@ -7,7 +7,7 @@ const userSchema = new Schema({
     required: true,
     unique: true,
     validate: {
-      validator: (v) => validator(v).isEmail(),
+      validator: (v) => validator.isEmail(v),
     },
   },
   password: {
