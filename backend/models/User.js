@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const { validator } = require('validator');
+const validator = require('validator');
 
 const userSchema = new Schema({
   email: {
@@ -30,7 +30,7 @@ const userSchema = new Schema({
   avatar: {
     type: String,
     validate: {
-      validator: (v) => validator.isUrl(v),
+      validator: (v) => validator.isURL(v),
     },
     default:
       'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',

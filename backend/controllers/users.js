@@ -85,6 +85,7 @@ const createUser = (req, res, next) => {
     .hash(password, 10)
     // eslint-disable-next-line arrow-body-style
     .then((hash) => {
+      console.log(email, password, body, hash);
       return User.create({
         email,
         password: hash, // записываем хеш в базу
@@ -92,6 +93,7 @@ const createUser = (req, res, next) => {
       });
     })
     .then((user) => {
+      console.log(user);
       const newUser = user.toObject();
       delete newUser.password;
       res.send(newUser);
@@ -139,7 +141,6 @@ const updateAvatar = (req, res, next) => {
   return User.findByIdAndUpdate(
     req.user._id,
     { avatar },
-    // eslint-disable-next-line comma-dangle
     { new: true, runValidators: true }
   )
     .then((user) => {

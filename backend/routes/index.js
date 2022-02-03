@@ -18,7 +18,6 @@ router.post(
       password: Joi.string().required(),
     }),
   }),
-  // eslint-disable-next-line comma-dangle
   login
 );
 
@@ -33,7 +32,6 @@ router.post(
       avatar: Joi.string().pattern(/^(http|https):\/\/(www){0,1}\.?\w+\.\S+/),
     }),
   }),
-  // eslint-disable-next-line comma-dangle
   createUser
 );
 

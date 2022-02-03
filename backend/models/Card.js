@@ -1,5 +1,5 @@
 const { Schema, model, Types } = require('mongoose');
-const { validator } = require('validator');
+const validator = require('validator');
 
 const cardSchema = new Schema({
   name: {
