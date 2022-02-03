@@ -12,7 +12,7 @@ const cardSchema = new Schema({
     type: String,
     required: true,
     validate: {
-      validator: (v) => validator.isUrl(v),
+      validator: (v) => validator.isURL(v),
     },
   },
   owner: {
