@@ -115,7 +115,6 @@ const updateUser = (req, res, next) => {
   return User.findByIdAndUpdate(
     req.user._id,
     { name, about },
-    // eslint-disable-next-line comma-dangle
     { new: true, runValidators: true }
   )
     .then((user) => {

@@ -39,7 +39,7 @@ router.patch(
   celebrate({
     body: Joi.object().keys({
       avatar: Joi.string()
-        .pattern(/^(http|https):\/\/(www){0,1}\.?\w+\.\w+/)
+        .pattern(/^(http|https):\/\/(www){0,1}\.?\w+\.\S+/)
         .required(),
     }),
   }),

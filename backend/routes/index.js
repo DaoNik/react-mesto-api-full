@@ -30,7 +30,7 @@ router.post(
       password: Joi.string().required(),
       name: Joi.string().min(2).max(30),
       about: Joi.string().min(2).max(30),
-      avatar: Joi.string().pattern(/^(http|https):\/\/(www){0,1}\.?\w+\.\w+/),
+      avatar: Joi.string().pattern(/^(http|https):\/\/(www){0,1}\.?\w+\.\S+/),
     }),
   }),
   // eslint-disable-next-line comma-dangle

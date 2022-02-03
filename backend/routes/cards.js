@@ -18,7 +18,7 @@ router.post(
       name: Joi.string().required().min(2).max(30),
       link: Joi.string()
         .required()
-        .pattern(/^(http|https):\/\/(www){0,1}\.?\w+\.\w+/),
+        .pattern(/^(http|https):\/\/(www){0,1}\.?\w+\.\S+/),
     }),
   }),
   createCard
