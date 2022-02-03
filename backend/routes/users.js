@@ -13,7 +13,15 @@ router.get('/', getUsers);
 
 router.get('/me', getCurrentUser);
 
-router.get('/:id', getUser);
+router.get(
+  '/:id',
+  celebrate({
+    params: Joi.object().keys({
+      id: Joi.string().length(24).hex(),
+    }),
+  }),
+  getUser
+);
 
 router.patch(
   '/me',
@@ -23,7 +31,6 @@ router.patch(
       about: Joi.string().required().min(2).max(30),
     }),
   }),
-  // eslint-disable-next-line comma-dangle
   updateUser
 );
 
@@ -31,10 +38,11 @@ router.patch(
   '/me/avatar',
   celebrate({
     body: Joi.object().keys({
-      avatar: Joi.string().required(),
+      avatar: Joi.string()
+        .pattern(/^(http|https):\/\/(www){0,1}\.?\w+\.\w+/)
+        .required(),
     }),
   }),
-  // eslint-disable-next-line comma-dangle
   updateAvatar
 );
 

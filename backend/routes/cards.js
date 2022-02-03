@@ -16,17 +16,42 @@ router.post(
   celebrate({
     body: Joi.object().keys({
       name: Joi.string().required().min(2).max(30),
-      link: Joi.string().required(),
+      link: Joi.string()
+        .required()
+        .pattern(/^(http|https):\/\/(www){0,1}\.?\w+\.\w+/),
     }),
   }),
-  // eslint-disable-next-line comma-dangle
   createCard
 );
 
-router.delete('/:id', deleteCard);
+router.delete(
+  '/:id',
+  celebrate({
+    params: Joi.object().keys({
+      id: Joi.string().length(24).hex(),
+    }),
+  }),
+  deleteCard
+);
 
-router.put('/:id/likes', addLike);
+router.put(
+  '/:id/likes',
+  celebrate({
+    params: Joi.object().keys({
+      id: Joi.string().length(24).hex(),
+    }),
+  }),
+  addLike
+);
 
-router.delete('/:id/likes', deleteLike);
+router.delete(
+  '/:id/likes',
+  celebrate({
+    params: Joi.object().keys({
+      id: Joi.string().length(24).hex(),
+    }),
+  }),
+  deleteLike
+);
 
 module.exports = router;
