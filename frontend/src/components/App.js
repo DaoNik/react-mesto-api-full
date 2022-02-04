@@ -40,6 +40,7 @@ function App() {
     avatar: avatar,
   });
   const [cards, setCards] = React.useState([]);
+  const location = useLocation();
 
   React.useEffect(() => {
     api
@@ -184,10 +185,11 @@ function App() {
     auth
       .authorize(email, password)
       .then((res) => {
-        setLoggedIn(true);
         setUserEmail(email);
         localStorage.setItem('email', email);
-        navigate('/');
+      })
+      .then(() => {
+        handleTokenCheck('/');
       })
       .then(() => {
         api
@@ -245,8 +247,6 @@ function App() {
       navigate('/sign-in');
     }
   }
-
-  const location = useLocation();
 
   React.useEffect(() => {
     handleTokenCheck(location.pathname);
