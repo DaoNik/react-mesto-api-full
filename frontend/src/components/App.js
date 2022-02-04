@@ -189,7 +189,14 @@ function App() {
         localStorage.setItem('email', email);
       })
       .then(() => {
-        handleTokenCheck('/');
+        api
+          .addCards()
+          .then((newCards) => {
+            setCards(newCards);
+          })
+          .catch((err) => {
+            console.log(`Ошибка: ${err}`);
+          });
       })
       .then(() => {
         api
@@ -202,14 +209,7 @@ function App() {
           });
       })
       .then(() => {
-        api
-          .addCards()
-          .then((newCards) => {
-            setCards(newCards);
-          })
-          .catch((err) => {
-            console.log(`Ошибка: ${err}`);
-          });
+        handleTokenCheck('/');
       })
       .catch((err) => {
         if (err === '400') {
