@@ -3,10 +3,11 @@ import CurrentUserContext from '../contexts/CurrentUserContext';
 
 function Card({ card, onCardClick, onCardLike, onCardDelete }) {
   const currentUser = React.useContext(CurrentUserContext);
-  const [isLiked, setIsLiked] = React.useState(
-    card.likes.some((i) => i === currentUser._id)
-  );
+  const [isLiked, setIsLiked] = React.useState([]);
   const isOwn = card.owner === currentUser._id;
+  React.useEffect(() => {
+    setIsLiked(card.likes.some((i) => i === currentUser._id));
+  }, [card.likes, currentUser._id]);
 
   const cardDeleteButtonClassName = `gallery__card-btn-trash ${
     isOwn ? '' : 'gallery__card-btn-trash_hidden'
