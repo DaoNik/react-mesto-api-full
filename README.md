@@ -5,10 +5,9 @@
 Это адаптивный веб-сайт, реализованый с помощью библиотеки React.js и react-router v.6, Node.js и express
 
 ### Ссылка на проект
-
+(Временно остановлен)
 https://pro100grog.students.nomoredomains.work/
 https://api.pro100grog.students.nomoredomains.work/
-Ip-адрес: 84.201.153.95
 
 ### Планы по улучшению
 
